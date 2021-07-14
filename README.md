@@ -21,7 +21,7 @@ Some highlights:
  * See `scripts/packages/` for required software packages for your distro.
  * The latest `rdma_core`, preferably installed from source
  * For non-Mellanox DPDK-compatible NICs, a system-wide installation from DPDK
-   19.11.5 LTS sources (i.e., `sudo make install T=x86_64-native-linuxapp-gcc
+   19.11.x LTS sources (i.e., `sudo make install T=x86_64-native-linuxapp-gcc
    DESTDIR=/usr`). Other DPDK versions are not supported.
  * NICs: Fast (10 GbE+) NICs are needed for good performance. eRPC works best
    with Mellanox Ethernet and InfiniBand NICs. Any DPDK-capable NICs
@@ -93,9 +93,9 @@ Some highlights:
        * `sudo apt install make cmake g++ gcc libnuma-dev libibverbs-dev libgflags-dev numactl`
        * `sudo modprobe ib_uverbs`
        * `sudo modprobe mlx4_ib`
-    * Download the [DPDK 19.11.5 tarball](https://core.dpdk.org/download/) and
+    * Download the [DPDK 19.11.x LTS tarball](https://core.dpdk.org/download/) and
       extract it. Other DPDK versions are not supported.
-    * Edit `config/common_base` by changing `CONFIG_RTE_LIBRTE_MLX5_PMD` and
+    * Edit `config/common_base` by changing `CONFIG_RTE_IBVERBS_LINK_DLOPEN `, `CONFIG_RTE_LIBRTE_MLX5_PMD` and
       `CONFIG_RTE_LIBRTE_MLX4_PMD` to `y` instead of `n`.
     * Build and install DPDK: `sudo make install T=x86_64-native-linuxapp-gcc
       DESTDIR=/usr`
